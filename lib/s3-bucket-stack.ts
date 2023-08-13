@@ -4,7 +4,6 @@ import * as cdk from 'aws-cdk-lib';
 // The code that defines your stack goes here
 export class S3BucketStack extends cdk.Stack {
   public readonly bucket: s3.Bucket;
-  public readonly bucket_download: s3.Bucket;
 
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);

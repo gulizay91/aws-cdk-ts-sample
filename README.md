@@ -47,10 +47,13 @@ cdk --version
 
 
 # Get Start
-Create an aws s3 bucket with aws cdk
 ```sh
 npm install
-npm run build && cdk synth
+```
+
+Create an aws s3 bucket with aws cdk, stackName: tmsS3Stack
+```sh
+npm run build && cdk synth <firstStackName/>
 cdk deploy --profile <profileName/>
 ```
 check your s3 buckets
@@ -58,3 +61,19 @@ check your s3 buckets
 aws s3 ls
 ```
 
+Create an aws s3 bucket with lifecycle rule, stackName: tmsS3DownloadStack
+dont forget change your accountId with AWS_ACCOUNT_ID
+```sh
+npm run build && cdk synth <secondStackName/>
+cdk deploy --profile <profileName/>
+```
+check your s3 buckets
+```sh
+aws s3 ls
+```
+
+remove stacks
+```sh
+cdk destroy <firstStackName/>
+cdk destroy <secondStackName/>
+```

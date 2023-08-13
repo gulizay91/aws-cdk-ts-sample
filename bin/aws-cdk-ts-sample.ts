@@ -3,6 +3,7 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 // import { AwsCdkTsSampleStack } from '../lib/aws-cdk-ts-sample-stack';
 import { S3BucketStack } from '../lib/s3-bucket-stack';
+import { S3DownloadBucketStack } from '../lib/s3-download-bucket-stack';
 
 const app = new cdk.App();
 // new AwsCdkTsSampleStack(app, 'AwsCdkTsSampleStack', {
@@ -23,6 +24,9 @@ const app = new cdk.App();
 
 // Creating an S3 bucket stack
 const s3_bucket_stack = new S3BucketStack(app, 'tmsS3Stack');
+const s3_download_bucket_stack = new S3DownloadBucketStack(app, 'tmsS3DownloadStack', {
+    env: {region: "us-east-1", account: "AWS_ACCOUNT_ID"}
+});
 
 // Re-using assets
 const bucket = s3_bucket_stack.bucket;
