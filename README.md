@@ -5,6 +5,10 @@ This is a blank project for CDK development with TypeScript.
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Before Start
+Install python
+```sh
+brew install python
+```
 Install nodejs
 ```sh
 brew install node
@@ -51,21 +55,23 @@ cdk --version
 npm install
 ```
 
-Create an aws s3 bucket with aws cdk, stackName: tmsS3Stack
+## S3 Bucket
+
+Create an aws s3 bucket with aws cdk, firstS3StackName: tmsS3Stack
 ```sh
-npm run build && cdk synth <firstStackName/>
-cdk deploy --profile <profileName/>
+npm run build && cdk synth
+cdk deploy <firstS3StackName/> --profile <profileName/>
 ```
 check your s3 buckets
 ```sh
 aws s3 ls
 ```
 
-Create an aws s3 bucket with lifecycle rule, stackName: tmsS3DownloadStack
+Create an aws s3 bucket with lifecycle rule, secondS3StackName: tmsS3DownloadStack
 dont forget change your accountId with AWS_ACCOUNT_ID
 ```sh
-npm run build && cdk synth <secondStackName/>
-cdk deploy --profile <profileName/>
+npm run build && cdk synth <secondS3StackName/>
+cdk deploy <secondS3StackName/> --profile <profileName/>
 ```
 check your s3 buckets
 ```sh
@@ -74,6 +80,23 @@ aws s3 ls
 
 remove stacks
 ```sh
-cdk destroy <firstStackName/>
-cdk destroy <secondStackName/>
+cdk destroy <firstS3StackName/>
+cdk destroy <secondS3StackName/>
+```
+
+## Lambda Functions
+
+Create basic python lambda function with aws cdk, lambdaStackName: basicLambdaStack
+```sh
+npm run build && cdk synth
+cdk deploy <lambdaStackName/> --profile <profileName/>
+```
+check your lambda functions
+```sh
+aws lambda list-functions
+```
+
+remove lambda stack
+```sh
+cdk destroy <lambdaStackName/> --profile <profileName/>
 ```

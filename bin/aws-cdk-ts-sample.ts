@@ -4,6 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 // import { AwsCdkTsSampleStack } from '../lib/aws-cdk-ts-sample-stack';
 import { S3BucketStack } from '../lib/s3-bucket-stack';
 import { S3DownloadBucketStack } from '../lib/s3-download-bucket-stack';
+import { BasicLambdaStack } from '../lib/basic_lambda_stack';
 
 const app = new cdk.App();
 // new AwsCdkTsSampleStack(app, 'AwsCdkTsSampleStack', {
@@ -30,3 +31,6 @@ const s3_download_bucket_stack = new S3DownloadBucketStack(app, 'tmsS3DownloadSt
 
 // Re-using assets
 const bucket = s3_bucket_stack.bucket;
+
+// deploying basic lambda functions
+const basic_lambda_stack = new BasicLambdaStack(app, 'basicLambdaStack');
