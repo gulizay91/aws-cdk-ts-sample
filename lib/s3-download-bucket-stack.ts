@@ -20,6 +20,7 @@ export class S3DownloadBucketStack extends cdk.Stack {
         blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
         removalPolicy: cdk.RemovalPolicy.DESTROY,
         lifecycleRules: [{
+          id: 'tms-download-temp-2days-lifecycle-rule',
           prefix: 'temp',
           expiration: cdk.Duration.days(2),
         }],
