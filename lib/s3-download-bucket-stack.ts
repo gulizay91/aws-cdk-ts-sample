@@ -27,7 +27,7 @@ export class S3DownloadBucketStack extends cdk.Stack {
         removalPolicy: cdk.RemovalPolicy.DESTROY,
         lifecycleRules: [{
           id: 'tms-download-temp-2days-lifecycle-rule',
-          prefix: 'temp',
+          prefix: 'temp/',
           expiration: cdk.Duration.days(2),
         }],
       });
